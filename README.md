@@ -8,7 +8,7 @@ computers work, how they are constructed, and how to plan and execute large-scal
 
 ## Chapters
 
-- [ ] Project 1: Boolean Logic
+- [x] Project 1: Boolean Logic
 - [ ] Project 2: Boolean Arithmetic
 - [ ] Project 3: Sequential Logic
 - [ ] Project 4: Machine Language
@@ -20,3 +20,13 @@ computers work, how they are constructed, and how to plan and execute large-scal
 - [ ] Project 10: Compiler I: Syntax Analysis
 - [ ] Project 11: Compiler II: Code Generation
 - [ ] Project 12: Operating System
+
+### Project 1
+
+In this project, I have implemented a set of elementary logic gates
+like And, Or, Mux, etc., as well as their bit-wise versions And16, Or16,
+Mux16, etc. (assuming a 16-bit machine).
+
+They were all implemented on top of the primitive Nand gate and the
+composite gates that were gradually build on top of it.
+
