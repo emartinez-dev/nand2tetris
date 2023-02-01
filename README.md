@@ -1,10 +1,18 @@
 # Nand2Tetris
 
 The elementary logic gate Nand (or its close relative Nor) is the fundamental building block
-from which all hardware platforms are made. In this course we start from the humble Nand
+from which all hardware platforms are made. 
+
+In this course we start from the humble Nand
 gate and work our way through the construction of a modern computer system – hardware
 and software – capable of running Tetris and any other program. In the process, we will learn how
 computers work, how they are constructed, and how to plan and execute large-scale systems building projects.
+
+## nand2tetris site resources
+
+- [nand2tetris website](https://www.nand2tetris.org/)
+- [Coursera course pt.1](https://www.coursera.org/learn/build-a-computer)
+- [Coursera course pt.2](https://www.coursera.org/learn/nand2tetris2)
 
 ## Chapters
 
@@ -21,7 +29,7 @@ computers work, how they are constructed, and how to plan and execute large-scal
 - [ ] Project 11: Compiler II: Code Generation
 - [ ] Project 12: Operating System
 
-### Project 1
+### Project 1: Boolean Logic
 
 In this project, I have implemented a set of elementary logic gates
 like And, Or, Mux, etc., as well as their bit-wise versions And16, Or16,
