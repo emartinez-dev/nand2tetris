@@ -41,6 +41,41 @@ CHIP ALU {
         zr, // 1 if (out == 0), 0 otherwise
         ng; // 1 if (out < 0),  0 otherwise
 
-    PARTS:
-   // Put you code here:
+    PARTS: 
+    // nx, ny and zx, zy selectors
+    Not16 (in=x, out=notx);
+    Not16 (in=y, out=noty);
+    Mux4Way16 (a=x, b=false, c=notx, d=true, sel[0]=zx, sel[1]=nx, out=nzx);
+    Mux4Way16 (a=y, b=false, c=noty, d=true, sel[0]=zy, sel[1]=ny, out=nzy);
+    // f selectors
+    And16 (a=nzx, b=nzy, out=andnzxy);
+    Add16 (a=nzx, b=nzy, out=addnzxy);
+    Mux16 (a=andnzxy, b=addnzxy, sel=f, out=muxf);
+    // no selectors
+    Not16 (in=muxf, out=notmuxf);
+    Mux16 (a=muxf, b=notmuxf, sel=no, out=preout);
+    Or16 (a=preout, b=false, out=out);
+    // ng output
+    Or16(a=preout, b=false, out[0..14]=false, out[15]=neg);
+    Or (a=neg, b=false,out=ng);    
+    // zr output
+    Or16(a=preout, b=false, out[0]=o0, out[1]=o1, out[2]=o2, out[3]=o3, out[4]=o4, out[5]=o5,
+            out[6]=o6, out[7]=o7, out[8]=o8, out[9]=o9, out[10]=o10, out[11]=o11, out[12]=o12,
+            out[13]=o13, out[14]=o14, out[15]=o15);
+    Or (a=o0, b=o1, out=or01); 
+    Or (a=o2, b=o3, out=or23); 
+    Or (a=o4, b=o5, out=or45); 
+    Or (a=o6, b=o7, out=or67); 
+    Or (a=o8, b=o9, out=or89); 
+    Or (a=o10, b=o11, out=or1011); 
+    Or (a=o12, b=o13, out=or1213); 
+    Or (a=o14, b=o15, out=or1415); 
+    Or (a=or01, b=or23, out=orq1);
+    Or (a=or45, b=or67, out=orq2);
+    Or (a=or89, b=or1011, out=orq3);
+    Or (a=or1213, b=or1415, out=orq4);
+    Or (a=orq1, b=orq2, out=orhalf1);
+    Or (a=orq3, b=orq4, out=orhalf2);
+    Or (a=orhalf1, b=orhalf2, out=orfinal);
+    Not (in=orfinal, out=zr);
 }
