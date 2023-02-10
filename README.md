@@ -17,7 +17,7 @@ computers work, how they are constructed, and how to plan and execute large-scal
 ## Chapters
 
 - [x] Project 1: Boolean Logic
-- [ ] Project 2: Boolean Arithmetic
+- [x] Project 2: Boolean Arithmetic
 - [ ] Project 3: Sequential Logic
 - [ ] Project 4: Machine Language
 - [ ] Project 5: Computer Architecture
@@ -37,4 +37,14 @@ Mux16, etc. (assuming a 16-bit machine).
 
 They were all implemented on top of the primitive Nand gate and the
 composite gates that were gradually build on top of it.
+
+### Project 2: Boolean Arithmetic
+
+The centerpiece of the computer's architecture is the CPU, or Central Processing Unit, and the
+computational centerpiece of the CPU is the ALU, or Arithmetic-Logic Unit.
+
+In this project, we gradually build a set of chips that carry out arithmetic addition,
+culminating in the construction of an ALU: the ALU chip of the Hack computer.
+All the chips built in this project are standard, except for the ALU, which varies from
+one computer architecture to another.
 
