@@ -18,7 +18,7 @@ computers work, how they are constructed, and how to plan and execute large-scal
 
 - [x] Project 1: Boolean Logic
 - [x] Project 2: Boolean Arithmetic
-- [ ] Project 3: Sequential Logic
+- [x] Project 3: Sequential Logic
 - [ ] Project 4: Machine Language
 - [ ] Project 5: Computer Architecture
 - [ ] Project 6: Assembler
@@ -48,3 +48,10 @@ culminating in the construction of an ALU: the ALU chip of the Hack computer.
 All the chips built in this project are standard, except for the ALU, which varies from
 one computer architecture to another.
 
+### Project 3: Sequential Logic
+
+In this project I have implemented elements that include sequential logic in chips. Starting
+from the flip-flop primitive, I have implemented the 1 bit register, the 16 bit version and
+RAMs from 8 to 16K bytes making use of Multiplexer and Demultiplexers.
+
+Also, the concept of Program Counter was introduced and I built mine.
