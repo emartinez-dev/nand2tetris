@@ -16,5 +16,23 @@ CHIP PC {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+        // Create whether or not we have to update the memory, it's always on load, inc or reset
+        Or(a=load, b=inc, out=loadOrInc);
+        Or(a=loadOrInc, b=reset, out=update);
+        // Create empty array for when reset is true
+        And16(out=resetAmount);
+
+        // Return the content of the memory and feed it with finalAmount
+        Register (in=finalAmount, load=update, out=memoOutput);
+        Inc16(in=memoOutput, out=memoPlusOne);
+
+        // Result of increasing memory or not
+        Mux16(a=memoOutput, b=memoPlusOne, sel=inc, out=incOut);
+
+        // Result of loading the input values or the calculated value
+        Mux16(a=incOut, b=in, sel=load, out=loadOut);
+
+        // Result of resetting the final value or not
+        Mux16(a=loadOut, b=resetAmount, sel=reset, out=finalAmount);
+        And16(a=memoOutput, b=true, out=out);
 }
